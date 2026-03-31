@@ -21,10 +21,10 @@ export function LeadCapture() {
     }
 
     // Save to localStorage
-    const existingStr = localStorage.getItem("mintocred_emails");
+    const existingStr = localStorage.getItem("mintcred_emails");
     const existing = existingStr ? JSON.parse(existingStr) : [];
     existing.push({ email, date: new Date().toISOString() });
-    localStorage.setItem("mintocred_emails", JSON.stringify(existing));
+    localStorage.setItem("mintcred_emails", JSON.stringify(existing));
 
     setError("");
     setIsSuccess(true);
@@ -92,7 +92,7 @@ export function LeadCapture() {
               <div className="space-y-3">
                 <h2 className="text-4xl font-extrabold text-foreground">You're on the Priority List!</h2>
                 <p className="text-xl text-foreground/70">
-                  You will be among the first to get access to MintOcred loans. Keep an eye on your inbox.
+                  You will be among the first to get access to MintCred loans. Keep an eye on your inbox.
                 </p>
               </div>
               <Button onClick={resetForm} variant="outline" className="rounded-full px-8 h-12 border-primary/20 hover:bg-primary/5 text-primary font-semibold">

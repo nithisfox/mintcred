@@ -27,16 +27,16 @@ export function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-4xl mx-auto space-y-8"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-white/60 mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-white/60 mb-4 shadow-sm">
             <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-            <span className="text-sm font-medium text-primary-foreground bg-primary px-2 py-0.5 rounded text-xs mr-1">NEW</span>
+            <span className="text-sm font-medium text-primary-foreground bg-primary px-2 py-0.5 rounded text-xs mr-1 uppercase tracking-wider">Coming Soon</span>
             <span className="text-sm font-semibold text-foreground/80">Business Capital in Minutes</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-extrabold text-foreground tracking-tight leading-tight">
-            Get Loan Approval in <br className="hidden md:block" />
+            Get Credit In a <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">
-              Less Than 10 Minutes
+              Click
             </span>
           </h1>
           

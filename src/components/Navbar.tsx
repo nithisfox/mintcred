@@ -22,8 +22,9 @@ export function Navbar() {
             <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl leading-none">
               M
             </div>
-            <span className="text-2xl font-bold text-foreground tracking-tight">
-              Mint<span className="text-primary">Ocred</span>
+            <span className="text-2xl font-bold text-foreground tracking-tight flex items-center gap-2">
+              Mint<span className="text-primary">Cred</span>
+              <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded-full font-semibold uppercase tracking-wider hidden sm:block">Soon</span>
             </span>
           </div>
 

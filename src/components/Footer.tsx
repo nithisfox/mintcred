@@ -8,9 +8,10 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start gap-2">
             <div className="text-2xl font-bold text-foreground tracking-tight flex items-center gap-1">
                <div className="h-6 w-6 rounded flex items-center justify-center bg-primary text-white text-xs font-bold">M</div>
-               <span>Mint<span className="text-primary">Ocred</span></span>
+               <span>Mint<span className="text-primary">Cred</span></span>
             </div>
-            <p className="text-sm text-foreground/60 font-medium">© 2024 MintOcred. All rights reserved.</p>
+            <p className="text-sm text-foreground/60 font-medium italic opacity-80">A product of CreditMitra</p>
+            <p className="text-xs text-foreground/40 font-medium pt-1">© 2024 MintCred. All rights reserved.</p>
           </div>
 
           <div className="flex items-center gap-6">
