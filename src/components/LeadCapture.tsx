@@ -8,8 +8,9 @@ export function LeadCapture() {
   const [email, setEmail] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
       setError("Please enter your email address.");
@@ -20,14 +21,44 @@ export function LeadCapture() {
       return;
     }
 
-    // Save to localStorage
-    const existingStr = localStorage.getItem("mintcred_emails");
-    const existing = existingStr ? JSON.parse(existingStr) : [];
-    existing.push({ email, date: new Date().toISOString() });
-    localStorage.setItem("mintcred_emails", JSON.stringify(existing));
-
+    setIsLoading(true);
     setError("");
-    setIsSuccess(true);
+
+    try {
+      // Send email notification via Formsubmit.co
+      const response = await fetch("https://formsubmit.co/ajax/Nithiskumar989@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          _subject: "🚀 New MintCred Waitlist Signup!",
+          _template: "box",
+          message: `New signup: ${email} joined the MintCred waitlist on ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}`,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Submission failed");
+
+      // Also save to localStorage as backup
+      const existingStr = localStorage.getItem("mintcred_emails");
+      const existing = existingStr ? JSON.parse(existingStr) : [];
+      existing.push({ email, date: new Date().toISOString() });
+      localStorage.setItem("mintcred_emails", JSON.stringify(existing));
+
+      setIsSuccess(true);
+    } catch {
+      // Still show success to user but note the network issue
+      const existingStr = localStorage.getItem("mintcred_emails");
+      const existing = existingStr ? JSON.parse(existingStr) : [];
+      existing.push({ email, date: new Date().toISOString() });
+      localStorage.setItem("mintcred_emails", JSON.stringify(existing));
+      setIsSuccess(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const resetForm = () => {
@@ -69,8 +100,16 @@ export function LeadCapture() {
                   />
                   {error && <p className="text-destructive text-sm font-medium mt-2 text-left px-4">{error}</p>}
                 </div>
-                <Button type="submit" size="lg" className="w-full h-14 rounded-full text-lg font-bold glow-hover">
-                  Notify Me
+                <Button type="submit" size="lg" disabled={isLoading} className="w-full h-14 rounded-full text-lg font-bold glow-hover disabled:opacity-70">
+                  {isLoading ? (
+                    <span className="flex items-center gap-2">
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
+                      </svg>
+                      Submitting...
+                    </span>
+                  ) : "Notify Me"}
                 </Button>
                 <p className="text-xs text-foreground/50 pt-2 font-medium">We respect your privacy. No spam ever.</p>
               </form>
