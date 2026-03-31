@@ -1,4 +1,4 @@
-import { FaTwitter as Twitter, FaLinkedin as Linkedin, FaInstagram as Instagram } from "react-icons/fa";
+import { FaTwitter as Twitter, FaLinkedin as Linkedin, FaInstagram as Instagram, FaGithub as Github } from "react-icons/fa";
 
 export function Footer() {
   return (
@@ -27,6 +27,9 @@ export function Footer() {
               </a>
               <a href="#" className="text-foreground/50 hover:text-primary transition-colors">
                 <Instagram size={20} />
+              </a>
+              <a href="https://github.com/nithisfox/mintcred/blob/main/README.md" target="_blank" rel="noopener noreferrer" className="text-foreground/50 hover:text-primary transition-colors" title="View README on GitHub">
+                <Github size={20} />
               </a>
             </div>
           </div>

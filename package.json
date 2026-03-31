@@ -1,7 +1,12 @@
 {
-  "name": "@workspace/mintocred",
-  "version": "0.0.0",
+  "name": "mintocred",
+  "version": "0.1.0",
   "private": true,
+  "homepage": "https://nithisfox.github.io/mintcred/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nithisfox/mintcred.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts",

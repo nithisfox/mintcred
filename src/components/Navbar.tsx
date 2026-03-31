@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "wouter";
 import { Menu, X } from "lucide-react";
+import { FaGithub as Github } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 
 export function Navbar() {
@@ -38,6 +38,9 @@ export function Navbar() {
             <button onClick={() => scrollToSection("contact")} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
               Contact
             </button>
+            <a href="https://github.com/nithisfox/mintcred/blob/main/README.md" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary transition-colors" title="View README on GitHub">
+              <Github size={20} />
+            </a>
             <Button onClick={() => scrollToSection("contact")} className="glow-hover rounded-full px-6 font-semibold shadow-lg shadow-primary/20">
               Get Priority Access
             </Button>
@@ -65,6 +68,9 @@ export function Navbar() {
           <button onClick={() => scrollToSection("contact")} className="text-left py-2 text-foreground font-medium border-b border-white/20">
             Contact
           </button>
+          <a href="https://github.com/nithisfox/mintcred/blob/main/README.md" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 py-2 text-foreground font-medium border-b border-white/20">
+            <Github size={18} /> Source Code
+          </a>
           <Button onClick={() => scrollToSection("contact")} className="w-full mt-2 rounded-full font-semibold">
             Get Priority Access
           </Button>
